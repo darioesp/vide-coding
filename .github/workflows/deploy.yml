@@ -1,9 +1,9 @@
 name: Deploy
 on:
   push:
-    branches: ["main"]
+    branches: main
   pull_request:
-    branches: ["main"]
+    branches: main
 
 jobs:
   deploy:
@@ -29,6 +29,8 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "cv-darioespinoza"
+          project: "vide-coding"
           entrypoint: "main.ts"
           root: "."
+          
+          
