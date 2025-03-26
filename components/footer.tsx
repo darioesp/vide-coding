@@ -1,6 +1,8 @@
+import AnchorLang from "../islands/AnchorLang.tsx";
 export default function Footer() {
   return (
     <footer class="text-center text-xs w-full py-1 mt-10">
+      <AnchorLang />
       <div class="py-1">
         Desarrollado por <a class="mx-1 text-blue-400" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/darioesp/">@darioesp</a>
         Con cariño desde un rincón de

@@ -7,7 +7,7 @@ export default function Home() {
       <WrapperPage attrClass="">
         <div class="border-b pb-3 flex justify-end items-center gap-x-2 text-sm">
           <strong>Peter Wong • Constellar.ai • Traducido por Midudev</strong>
-          <a href="/en/"><span class="p-1 bg-slate-300/80 uppercase text-xs font-bold rounded-full self-center aspect-square min-w-5 min-h-5">En</span></a>
+          <span class="p-1 bg-slate-300/80  inline-flex justify-center text-xs font-bold rounded-full items-center aspect-square min-w-5 min-h-5">en</span>
         </div>
         <SectionWrapperContent title="La Guía Definitiva del Vibe Coding">
           <section class="w-full gap-4 text-sm leading-sm">
