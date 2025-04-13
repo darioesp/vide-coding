@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
-import { asset } from "$fresh/runtime.ts";
-export default function Error404() {
+import { pageProps } from "$fresh/server.ts";
+export default function Error404({message}: pageProps<{message: string}>) {
   return (
     <>
       <Head>

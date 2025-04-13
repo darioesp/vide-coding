@@ -1,34 +1,32 @@
-import { type PageProps } from "$fresh/server.ts";
+import { FreshContext } from "$fresh/server.ts";
+import translations from "../locales/es.json" with { type: "json" };
+import { t } from "../utils/i18n.ts";
 
-/* 
-import { Handlers } from "$fresh/server.ts";
-import marked from "marked"; */
-
-/* export const handler: Handlers = {
-  async GET(req, ctx) {
-    // Lee el archivo Markdown
-    const markdownContent = await Deno.readTextFile("./static/mi-archivo.md");
-
-    // Convierte el Markdown a HTML
-    const htmlContent = marked(markdownContent);
-
-    return new Response(htmlContent, {
-      headers: { "Content-Type": "text/html" },
-    });
-  },
-} */
-
-export default function App({ Component }: PageProps) {
+interface State {
+  lang: string;
+  translations: typeof translations;
+}
+export default async function App(
+  req: Request,
+  ctx: FreshContext<State>,
+) {
+  const url = new URL(req.url);
+  const lang = url.pathname.split("/")[1] || "es";
+  const translations = await t(lang);
+  ctx.state.lang = lang;
+  ctx.state.translations = translations;
   return (
-    <html>
+    <html lang={lang}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>vibe coding</title>
+        <title>
+          {translations?.site?.title || "Vibe Coding - Idioma no encontrado"}
+        </title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body class="bg-[#f9f9f9] text-[#444444]">
-        <Component />
+        <ctx.Component />
       </body>
     </html>
   );

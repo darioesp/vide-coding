@@ -1,0 +1,69 @@
+{
+    "site": {
+        "title": "Codificación de vibraciones(vibe coding)",
+        "description": "La codificación de vibraciones (vibe coding) es una técnica de programación que utiliza inteligencia artificial (IA) para construir software basado en descripciones en lenguaje natural."
+    },
+    "index": {
+        "header": "Peter Wong • Constellar.ai • Traducido por Midudev",
+        "sections": [
+            {
+                "title": "¿Qué es el Vibe Coding?",
+                "items": [
+                    "Un nuevo paradigma donde te \"entregas completamente a las vibras\" (Andrej Karpathy)",
+                    "<strong>Adopta la IA para escribir más del 95% de tu código</strong>",
+                    "Transición de programador a \"ingeniero de producto\"",
+                    "Aumenta la productividad de 10 a 100 veces aprovechando herramientas de codificación con IA"
+                ]
+            },
+            {
+                "title": "Herramientas esenciales",
+                "items": [
+                    "<strong>Cursor -</strong> IDE más popular para vibe coding con una comprensión completa del código",
+                    "<strong>Windsurf -</strong> Alternativa de rápido crecimiento que indexa todo tu código",
+                    "<strong>Claude 3.5 Sonnet/3 Opus -</strong> Modelos líderes para tareas de codificación diarias",
+                    "<strong>Claude 01/03 -</strong> Modelos de razonamiento paa depuración de problemas complejos",
+                    "<strong>ChatGPT -</strong> Utilizado específicamente para el razonamiento en la depuración de problemas"
+                ]
+            },
+            {
+                "title": "El nuevo flujo de trabajo",
+                "items": [
+                    "Reescribir en lugar de arreglar - Reescribir es más barato que depurar (simplemente vuelve a intentarlo desde cero)",
+                    "Hacer prompts en paralelo (ejecuta múltiples sesiones de IA en diferentes funciones simultáneamente)",
+                    "Enfocarse en la iteración rápida en lugar del código perfecto",
+                    "<strong>El gusto humano es ahora más importante que la habilidad para programar</strong>"
+                ]
+            },
+            {
+                "title": "Cuándo destaca el Vibe Coding",
+                "items": [
+                    "Desarrollo de productos desde cero (la velocidad lo es todo)",
+                    "Prototipado de funciones e iteración rápida",
+                    "Proyectos donde la escalabilidad no es una preocupación inmediata",
+                    "<strong>Aplicaciones de complejidad simple a moderada</strong>",
+                    "Cuando se trabaja con frameworks modernos y bien documentados"
+                ]
+            },
+            {
+                "title": "El elemento humano",
+                "items": [
+                    "Desarrollar habilidades de pensamiento sistémico y arquitectura (la IA aún tiene dificultades aquí)",
+                    "Cultivar el gusto por los productos y la empatía con los usuarios",
+                    "Aprender a evaluar la calidad del código generado por IA",
+                    "La depuración sigue siendo una habilidad humana crítica",
+                    "Enfocarse en el \"por qué\" y el \"qué\", en lugar del \"cómo\""
+                ]
+            },
+            {
+                "title": "Construyendo para la escalabilidad",
+                "items": [
+                    "El vibe coding te permite llegar rápidamente a un MVP, pero la escalabilidad requiere experiencia",
+                    "Contratar expertos en pensamiento sistémico para desafíos de infraestructura complejos",
+                    "<strong>La deuda técnica se acumula más rápido - planifica la refactorización estratégicamente</strong>",
+                    "Los sistemas críticos pueden requerir enfoques más tradicionales",
+                    "Equilibrar el desarrollo rápido con consideraciones arquitectónicas"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "site": {
+        "title": "Vibe Coding",
+        "description": "Vibe coding is a programming technique that uses artificial intelligence (AI) to build software based on natural language descriptions."
+    },
+    "index": {
+        "header": "Peter Wong • Constellar.ai",
+        "sections": [
+            {
+                "title": "What Is Vibe Coding?",
+                "items": [
+                    "A new paradigm where you \"fully give in to the vibes\" (Andrej Karpathy)",
+                    "<strong>Embrace AI to write 95% of your codebase</strong>",
+                    "Shift from being a programmer to being a \"product engineer\"",
+                    "Make 10-100x productivity gains by leaning into AI coding tools"
+                ]
+            },
+            {
+                "title": "Essential Tools",
+                "items": [
+                    "<strong>Cursor - </strong>Most popular IDE for vibe coding with comprehensive code understanding",
+                    "<strong>Windsurf </strong>- Fast-growing alternative that indexes your entire codebase",
+                    "<strong>Claude 3.5 Sonnet/3 Opus </strong>- Top models for everyday coding tasks",
+                    "<strong>Claude 01/03 </strong>- Reasoning models for debugging complex issues",
+                    "<strong>ChatGPT </strong>- Used specifically for reasoning through debugging problems"
+                ]
+            },
+            {
+                "title": "The New Workflow",
+                "items": [
+                    "Roll not fix - Rewriting is cheaper than debugging (just retry from scratch)",
+                    "Prompt in parallel (run multiple AI sessions on different features simultaneously)",
+                    "Focus on rapid iteration rather than perfect code",
+                    "<strong>Human taste is now more important than coding skill</strong>"
+                ]
+            },
+            {
+                "title": "When Vibe Coding Excels",
+                "items": [
+                    "Zero-to-one product development (speed is everything)",
+                    "Feature prototyping and rapid iteration",
+                    "Projects where scale isn't an immediate concern",
+                    "<strong>Simple to moderately complex applications</strong>",
+                    "When working with modern, well-documented frameworks"
+                ]
+            },
+            {
+                "title": "The Human Element",
+                "items": [
+                    "Develop system thinking and architecture skills (AI still struggles here)",
+                    "Cultivate product taste and user empathy",
+                    "Learn to judge the quality of AI-generated code",
+                    "Debugging remains a critical human skill",
+                    "Focus on the \"why\" and \"what\" rather than the \"how\""
+                ]
+            },
+            {
+                "title": "Building for Scale",
+                "items": [
+                    "Vibe coding gets you to MVP quickly, but scaling requires expertise",
+                    "Hire systems thinkers for complex infrastructure challenges",
+                    "<strong>Technical debt accumulates faster - plan refactoring strategically</strong>",
+                    "Critical systems may require more traditional approaches",
+                    "Balance quick development with architectural considerations"
+                ]
+            }
+        ]
+    }
+}
