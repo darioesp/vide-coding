@@ -2,7 +2,7 @@ import { type Config } from "tailwindcss";
 
 export default {
   content: [
-    "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
+    "{routes,islands,components,locales}/**/*.{ts,tsx,js,jsx,json}",
   ],
   darkMode: "class", // Enables dark mode using the "class" strategy
   theme: {

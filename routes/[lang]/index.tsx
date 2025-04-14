@@ -47,7 +47,7 @@ export default function Home({ state }: PageProps<State>) {
             </section>
           </SectionWrapperContent>
         </WrapperPage>
-        <Footer/>
+        <Footer state={state}/>
       </div>
     </>
   );
