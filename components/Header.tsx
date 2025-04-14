@@ -1,9 +1,7 @@
-import ButtonPrint from "../islands/ButtonPrint.tsx";
 import DarkMode from "../islands/DarkMode.tsx";
 export default function Header() {
   return (
     <header class="min-w-min px-4 py-2 rounded-lg max-w-min mx-auto flex gap-4 items-center bg-slate-200/50 left-1/2 -translate-x-1/2 fixed bottom-4 md:sticky md:top-4 z-50 backdrop-blur-md dark:bg-slate-800/50 print:hidden">
-      <ButtonPrint />
       <a 
         href="https://github.com/darioesp"
         target="_blank"

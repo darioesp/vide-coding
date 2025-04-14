@@ -1,5 +1,6 @@
 import { PageProps } from "$fresh/server.ts";
 import Footer from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
 import SectionWrapperContent from "../components/SectionWrapperContent.tsx";
 import WrapperPage from "../components/WrapperPage.tsx";
 import translations from "../locales/es.json" with { type: "json" };
@@ -12,7 +13,7 @@ export default function Home({ state }: PageProps<State>) {
   const { lang, translations } = state;
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div class="relative mx-4 md:mx-10 font-roboto-mono">
         <WrapperPage attrClass="">
           <div class="border-b pb-3 flex justify-end items-center gap-x-2 text-sm">
@@ -27,7 +28,7 @@ export default function Home({ state }: PageProps<State>) {
                   <h3 class="font-bold text-base mt-5">
                     {section.title}
                   </h3>
-                  <ul class="ml-6 list-disc col-span-full text-slate-800/90 text-pretty text-sm">
+                  <ul class="ml-6 list-disc col-span-full text-slate-800/90 dark:text-slate-200/80 text-pretty text-sm">
                     {section.items.map((item, index) => (
                       <li key={index}>
                         <div

@@ -25,7 +25,7 @@ export default async function App(
         </title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="bg-[#f9f9f9] text-[#444444]">
+      <body class="bg-[#f9f9f9] text-[#444444] dark:bg-[#0C0C0C] dark:text-[#f9f9f9]">
         <ctx.Component />
       </body>
     </html>
