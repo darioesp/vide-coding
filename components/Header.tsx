@@ -1,11 +1,31 @@
 import DarkMode from "../islands/DarkMode.tsx";
 export default function Header() {
   return (
-    <header class="min-w-min px-4 py-2 rounded-lg max-w-min mx-auto flex gap-4 items-center bg-slate-200/50 left-1/2 -translate-x-1/2 fixed bottom-4 md:sticky md:top-4 z-50 backdrop-blur-md dark:bg-slate-800/50 print:hidden">
-      <a 
+    <header class="min-w-min px-4 py-2 rounded-lg max-w-min mx-auto flex gap-4 items-center bg-slate-300/40 left-1/2 -translate-x-1/2 fixed bottom-4 md:sticky md:top-4 z-50 backdrop-blur-md dark:bg-slate-700/40 print:hidden">
+      <a
+        href="https://github.com/darioesp/vide-coding"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg
+          aria-hidden="true"
+          height="18"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="18"
+          data-view-component="true"
+          fill="currentColor"
+          className="w-[21px] h-[21px]"
+        >
+          <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z">
+          </path>
+        </svg>
+      </a>
+      <a
         href="https://github.com/darioesp"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         <svg
           height="20"
           aria-hidden="true"

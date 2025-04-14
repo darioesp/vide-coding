@@ -1,16 +1,27 @@
-import { PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import Footer from "../../components/Footer.tsx";
 import Header from "../../components/Header.tsx";
 import SectionWrapperContent from "../../components/SectionWrapperContent.tsx";
 import WrapperPage from "../../components/WrapperPage.tsx";
+import AnchorLang from "../../islands/AnchorLang.tsx";
 import translations from "../../locales/es.json" with { type: "json" };
+import { getLanguages } from "../../utils/global.ts";
+
+export const handler: Handlers = {
+  async GET(_, ctx) {
+    const languages = await getLanguages(); // Obtén los lenguajes en el servidor
+    return ctx.render({ languages });
+  },
+};
 
 interface State {
   state: { lang: string; translations: typeof translations };
+  languages: string[];
 }
 
-export default function Home({ state }: PageProps<State>) {
-  const { lang: _lang, translations } = state;
+export default function Home({ state, data }: PageProps<State>) {
+  const { lang, translations } = state;
+  const { languages } = data;
   return (
     <>
       <Header />
@@ -48,8 +59,9 @@ export default function Home({ state }: PageProps<State>) {
             </section>
           </SectionWrapperContent>
         </WrapperPage>
-        <Footer state={state}/>
       </div>
+      <Footer state={state}/>
+      <AnchorLang lang={lang} languages={languages} />
     </>
   );
 }
