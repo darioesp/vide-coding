@@ -43,6 +43,7 @@ export default function Home({ state, data }: PageProps<State>) {
                   <ul class="ml-6 list-disc col-span-full text-slate-800/90 dark:text-slate-200/80 text-pretty text-sm">
                     {section.items.map((item, index) => (
                       <li key={index}>
+                        {/* deno-lint-ignore react-no-danger */}
                         <div
                           dangerouslySetInnerHTML={{
                             __html: item,

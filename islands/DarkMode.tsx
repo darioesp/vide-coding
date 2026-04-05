@@ -8,7 +8,7 @@ const DarkMode = () => {
     const savedTheme = localStorage.getItem("theme");
     const isDarkModeClient = savedTheme
       ? savedTheme === "dark"
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      : globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
     if (isDarkModeClient) {
       setIsDarkMode(true);
     }
@@ -30,6 +30,7 @@ const DarkMode = () => {
 
   return (
     <button
+      type="button"
       onClick={toggleDarkMode}
       className="print:hidden"
     >
