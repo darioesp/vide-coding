@@ -8,19 +8,23 @@ import AnchorLang from "../../islands/AnchorLang.tsx";
 import translations from "../../locales/es.json" with { type: "json" };
 import { getLanguages } from "../../utils/global.ts";
 
-export const handler: Handlers = {
+interface MiddlewareState {
+  lang: string;
+  translations: typeof translations;
+}
+
+interface Data {
+  languages: string[];
+}
+
+export const handler: Handlers<Data, MiddlewareState> = {
   async GET(_, ctx) {
     const languages = await getLanguages(); // Obtén los lenguajes en el servidor
     return ctx.render({ languages });
   },
 };
 
-interface State {
-  state: { lang: string; translations: typeof translations };
-  languages: string[];
-}
-
-export default function Home({ state, data }: PageProps<State>) {
+export default function Home({ state, data }: PageProps<Data, MiddlewareState>) {
   const { lang, translations } = state;
   const { languages } = data;
   return (
@@ -43,8 +47,8 @@ export default function Home({ state, data }: PageProps<State>) {
                   <ul class="ml-6 list-disc col-span-full text-slate-800/90 dark:text-slate-200/80 text-pretty text-sm">
                     {section.items.map((item, index) => (
                       <li key={index}>
-                        {/* deno-lint-ignore react-no-danger */}
                         <div
+                          // deno-lint-ignore react-no-danger
                           dangerouslySetInnerHTML={{
                             __html: item,
                           }}

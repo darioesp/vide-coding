@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
-import { pageProps } from "$fresh/server.ts";
-export default function Error404(_props: pageProps<{ message: string }>) {
+import { PageProps } from "$fresh/server.ts";
+export default function Error404(_props: PageProps<{ message: string }>) {
   return (
     <>
       <Head>
