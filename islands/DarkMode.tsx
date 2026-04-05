@@ -2,11 +2,13 @@
 import { useEffect, useState } from "preact/hooks";
 
 const DarkMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState( false );
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const isDarkModeClient = savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDarkModeClient = savedTheme
+      ? savedTheme === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
     if (isDarkModeClient) {
       setIsDarkMode(true);
     }

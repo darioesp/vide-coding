@@ -34,33 +34,30 @@ export default function Home({ state, data }: PageProps<State>) {
           </div>
           <SectionWrapperContent title="La Guía Definitiva del Vibe Coding">
             <section class="w-full gap-4 text-sm leading-sm">
-              {
-                translations.index.sections.map((section) => (
+              {translations.index.sections.map((section) => (
                 <>
                   <h3 class="font-bold text-base mt-5">
                     {section.title}
                   </h3>
                   <ul class="ml-6 list-disc col-span-full text-slate-800/90 dark:text-slate-200/80 text-pretty text-sm">
-                    {
-                      section.items.map((item, index) => (
-                        <li key={index}>
+                    {section.items.map((item, index) => (
+                      <li key={index}>
                         <div
-                            dangerouslySetInnerHTML={{
-                              __html: item,
-                            }}
-                          ></div>
-                        </li>
-                      ))
-                    }
+                          dangerouslySetInnerHTML={{
+                            __html: item,
+                          }}
+                        >
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </>
-                ))
-              }
+              ))}
             </section>
           </SectionWrapperContent>
         </WrapperPage>
       </div>
-      <Footer state={state}/>
+      <Footer state={state} />
       <AnchorLang lang={lang} languages={languages} />
     </>
   );

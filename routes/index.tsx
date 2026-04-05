@@ -57,7 +57,7 @@ export default function Home({ state, data }: PageProps<State>) {
           </SectionWrapperContent>
         </WrapperPage>
       </div>
-      <Footer state={state}/>
+      <Footer state={state} />
       <AnchorLang lang={lang} languages={languages} />
     </>
   );
