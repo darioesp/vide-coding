@@ -1,6 +1,6 @@
 const ButtonPrint = () => {
   const handlePrint = () => {
-    window.print();
+    globalThis.print();
   };
 
   return (
