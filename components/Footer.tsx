@@ -7,17 +7,17 @@ export default function Footer({ state }: PageProps<State>) {
   const { lang: _lang, translations } = state;
   return (
     <footer class="text-center text-xs w-full py-1 mt-10 mb-20">
-      {/* deno-lint-ignore react-no-danger */}
       <div
         class="py-1"
+        // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
           __html: translations.index.footer.development,
         }}
       >
       </div>
-      {/* deno-lint-ignore react-no-danger */}
       <div
         class="py-1"
+        // deno-lint-ignore react-no-danger
         dangerouslySetInnerHTML={{
           __html: translations.index.footer.created,
         }}
