@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Fragment } from "preact";
 import Footer from "../../components/Footer.tsx";
 import Header from "../../components/Header.tsx";
 import SectionWrapperContent from "../../components/SectionWrapperContent.tsx";
@@ -35,7 +36,7 @@ export default function Home({ state, data }: PageProps<State>) {
           <SectionWrapperContent title="La Guía Definitiva del Vibe Coding">
             <section class="w-full gap-4 text-sm leading-sm">
               {translations.index.sections.map((section) => (
-                <>
+                <Fragment key={section.title}>
                   <h3 class="font-bold text-base mt-5">
                     {section.title}
                   </h3>
@@ -51,7 +52,7 @@ export default function Home({ state, data }: PageProps<State>) {
                       </li>
                     ))}
                   </ul>
-                </>
+                </Fragment>
               ))}
             </section>
           </SectionWrapperContent>

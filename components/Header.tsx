@@ -3,7 +3,7 @@ export default function Header() {
   return (
     <header class="min-w-min px-4 py-2 rounded-lg max-w-min mx-auto flex gap-4 items-center bg-slate-300/40 left-1/2 -translate-x-1/2 fixed bottom-4 md:sticky md:top-4 z-50 backdrop-blur-md dark:bg-slate-700/40 print:hidden">
       <a
-        href="https://github.com/daesdev/vide-coding"
+        href="https://github.com/daesdev/vibe-coding"
         target="_blank"
         rel="noopener noreferrer"
       >

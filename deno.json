@@ -8,7 +8,7 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "deploy": "wrangler deploy"
+    "deploy": "deno run -A npm:wrangler deploy"
   },
   "lint": {
     "rules": {

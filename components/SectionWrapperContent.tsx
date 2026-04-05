@@ -4,7 +4,7 @@ interface SectionWrapperContentProps {
   readonly children: preact.ComponentChildren;
 }
 export default function SectionWrapperContent(
-  { title, attrClass, children }: SectionWrapperContentProps,
+  { title, attrClass = "", children }: SectionWrapperContentProps,
 ) {
   const classes = `flex flex-col gap-y-3 mt-10 font-roboto-mono ${attrClass}`;
   return (
