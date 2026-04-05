@@ -19,7 +19,7 @@ export default function Error404({ message }: pageProps<{ message: string }>) {
             Regresar a Vibe Coding
           </a>
           <a
-            href="https://github.com/darioesp/vide-coding"
+            href="https://github.com/daesdev/vibe-coding"
             class="flex justify-center items-center px-3 py-1.5 bg-black/5 dark:bg-black/95 border border-[#ddd] dark:border-black rounded-md backdrop-blur-sm"
           >
             ir al repositorio

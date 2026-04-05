@@ -15,7 +15,9 @@ const AnchorLang = ({ lang: currentLang, languages }: AnchorLangProps) => {
             >
               <span
                 className={`${
-                  isActive ? "bg-white/70 dark:bg-black/70" : "group-hover:bg-white/30 dark:group-hover:bg-black/30"
+                  isActive
+                    ? "bg-white/70 dark:bg-black/70"
+                    : "group-hover:bg-white/30 dark:group-hover:bg-black/30"
                 } text-black/60 dark:text-white/60 inline-flex text-xl px-2 py-1.5 font-bold rounded-md justify-center items-center aspect-video max-w-min`}
               >
                 {lang}

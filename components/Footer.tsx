@@ -10,14 +10,14 @@ export default function Footer({ state }: PageProps<State>) {
       <div
         class="py-1"
         dangerouslySetInnerHTML={{
-          __html: translations.index.footer.development
+          __html: translations.index.footer.development,
         }}
       >
       </div>
       <div
         class="py-1"
         dangerouslySetInnerHTML={{
-          __html: translations.index.footer.created
+          __html: translations.index.footer.created,
         }}
       >
       </div>
