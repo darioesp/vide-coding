@@ -1,4 +1,4 @@
-# Vibe Coding - La Guía Definitiva
+# Vibe Coding - The Ultimate Guide / La Guía Definitiva
 
 > Basado en el trabajo de Peter Wong · Creado por
 > [@daesdev](https://github.com/daesdev)
