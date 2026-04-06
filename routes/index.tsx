@@ -23,7 +23,9 @@ export const handler: Handlers<Data, MiddlewareState> = {
   },
 };
 
-export default function Home({ state, data }: PageProps<Data, MiddlewareState>) {
+export default function Home(
+  { state, data }: PageProps<Data, MiddlewareState>,
+) {
   const { lang, translations } = state;
   const { languages } = data;
   return (
