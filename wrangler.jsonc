@@ -11,5 +11,10 @@
       "pattern": "vibe-coding.daes.dev",
       "custom_domain": true
     }
-  ]
+  ],
+  "alias": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/"
+  }
 }
