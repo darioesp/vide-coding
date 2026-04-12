@@ -117,8 +117,8 @@ deno task prepare
 
 **Deno no encontrado en hook:**
 
-El hook `.husky/pre-commit` ya incluye `export PATH="$HOME/.deno/bin:$PATH"` para
-garantizar que Deno esté disponible. Si aún falla, verificar:
+El hook `.husky/pre-commit` ya incluye `export PATH="$HOME/.deno/bin:$PATH"`
+para garantizar que Deno esté disponible. Si aún falla, verificar:
 
 ```bash
 # Verificar que Deno está instalado
