@@ -28,13 +28,28 @@ jobs:
       - name: Build step
         run: deno task build
 
+      - name: Pre-render pages and assemble dist
+        run: |
+          set -e
+          mkdir -p dist
+          cp -r static/. dist/
+          cp -r _fresh dist/
+          deno run -A main.ts &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          timeout 20 bash -c 'until curl -sf http://localhost:8000/ > /dev/null 2>&1; do sleep 1; done'
+          mkdir -p dist/es dist/en
+          curl -sf http://localhost:8000/ -o dist/index.html
+          curl -sf http://localhost:8000/es -o dist/es/index.html
+          curl -sf http://localhost:8000/en -o dist/en/index.html
+
       - name: Upload build artifacts
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: fresh-build
           path: |
-            _fresh/
+            dist/
           retention-days: 1
 
   deploy:
@@ -54,7 +69,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: fresh-build
-          path: _fresh/
+          path: dist/
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
