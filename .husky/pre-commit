@@ -1,5 +1,5 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# Husky pre-commit hook (v9 forward-compatible format)
+export PATH="$HOME/.deno/bin:$PATH"
 
 echo "🔍 Running pre-commit checks (auto-formatting enabled)..."
 deno task precommit

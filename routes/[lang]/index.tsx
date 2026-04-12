@@ -39,7 +39,7 @@ export default function Home(
               {translations.index.header}
             </strong>
           </div>
-          <SectionWrapperContent title="La Guía Definitiva del Vibe Coding">
+          <SectionWrapperContent title={translations.index.title}>
             <section class="w-full gap-4 text-sm leading-sm">
               {translations.index.sections.map((section) => (
                 <Fragment key={section.title}>
