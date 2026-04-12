@@ -14,6 +14,11 @@ Proyecto construido con Deno Fresh con soporte para internacionalización
 - **CSS**: Tailwind CSS 3.4.1
 - **Deployment**: Cloudflare Workers (via Wrangler)
 
+**Nota sobre dependencias**: El proyecto usa Deno como runtime principal, pero
+incluye un `package.json` mínimo con Wrangler 4.80.0 como devDependency
+exclusivamente para GitHub Actions CI/CD. Tailwind y otras herramientas se
+instalan vía Deno.
+
 ## Convenciones de Código
 
 ### Componentes Fresh

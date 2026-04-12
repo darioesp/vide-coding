@@ -47,14 +47,16 @@ commit.
 #### Setup inicial (solo una vez):
 
 ```bash
-# Instalar dependencias npm de Deno (Tailwind, Wrangler, etc.)
-deno install
+# Instalar dependencias npm (Wrangler para CI/CD)
+npm install
 
 # Configurar git hooks de Husky
 deno task prepare
 ```
 
-Esto instalará automáticamente los hooks en `.git/hooks/`.
+**Nota**: Este proyecto usa Deno como runtime principal, pero incluye un
+`package.json` mínimo con Wrangler como devDependency para facilitar el deploy
+en GitHub Actions.
 
 #### Pre-commit Hook
 
