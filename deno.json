@@ -22,7 +22,9 @@
     }
   },
   "exclude": [
-    "**/_fresh/*"
+    "**/_fresh/*",
+    "**/node_modules/*",
+    ".husky/*"
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
