@@ -38,3 +38,46 @@ Then start the project:
 ```bash
 deno task start
 ```
+
+### Development Workflow
+
+Este proyecto usa **Husky** para ejecutar validaciones automáticas antes de cada
+commit.
+
+#### Setup inicial (solo una vez):
+
+```bash
+# Instalar dependencias npm de Deno (Tailwind, Wrangler, etc.)
+deno install
+
+# Configurar git hooks de Husky
+deno task prepare
+```
+
+Esto instalará automáticamente los hooks en `.git/hooks/`.
+
+#### Pre-commit Hook
+
+Cada vez que hagas `git commit`, se ejecutan automáticamente:
+
+1. **`deno fmt`** - Formatea el código automáticamente
+2. **`deno lint`** - Valida reglas de linting (bloquea si falla)
+3. **`deno check`** - Valida tipos TypeScript (bloquea si falla)
+
+#### Comandos útiles:
+
+```bash
+deno task fmt          # Formatear código manualmente
+deno task check        # Validar sin modificar (como en CI)
+deno task precommit    # Formatear + validar (como en el hook)
+deno task start        # Desarrollo con hot-reload
+```
+
+#### Bypass de hooks (solo emergencias):
+
+```bash
+git commit --no-verify -m "emergency fix"
+```
+
+**⚠️ NO abusar de `--no-verify`** - el CI de GitHub Actions igual validará el
+código.

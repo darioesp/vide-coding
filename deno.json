@@ -2,6 +2,9 @@
   "lock": false,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "fmt": "deno fmt",
+    "precommit": "deno fmt && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "prepare": "deno run -A npm:husky install",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",

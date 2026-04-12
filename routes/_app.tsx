@@ -6,13 +6,13 @@ interface State {
   lang: string;
   translations: typeof translations;
 }
-export default async function App(
+export default function App(
   req: Request,
   ctx: FreshContext<State>,
 ) {
   const url = new URL(req.url);
   const lang = url.pathname.split("/")[1] || "es";
-  const translations = await t(lang);
+  const translations = t(lang);
   ctx.state.lang = lang;
   ctx.state.translations = translations;
   return (
