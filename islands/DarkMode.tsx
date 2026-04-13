@@ -32,7 +32,7 @@ const DarkMode = () => {
     <button
       type="button"
       onClick={toggleDarkMode}
-      className="print:hidden"
+      className="print:hidden hover:cursor-pointer"
     >
       {isDarkMode
         ? (
