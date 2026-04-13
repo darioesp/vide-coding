@@ -1,0 +1,15 @@
+{
+  "name": "landing-vibe-coding-peter-wong",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page informativa sobre Vibe Coding basada en el trabajo de Peter Wong",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@cloudflare/vite-plugin": "^1.31.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "wrangler": "^4.81.1"
+  }
+}

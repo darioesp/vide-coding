@@ -1,4 +1,4 @@
-"use client";
+/* "use client"; */
 import { useEffect, useState } from "preact/hooks";
 
 const DarkMode = () => {
@@ -32,7 +32,7 @@ const DarkMode = () => {
     <button
       type="button"
       onClick={toggleDarkMode}
-      className="print:hidden"
+      className="print:hidden hover:cursor-pointer"
     >
       {isDarkMode
         ? (

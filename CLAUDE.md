@@ -14,6 +14,11 @@ Proyecto construido con Deno Fresh con soporte para internacionalización
 - **CSS**: Tailwind CSS 3.4.1
 - **Deployment**: Cloudflare Workers (via Wrangler)
 
+**Nota sobre dependencias**: El proyecto usa Deno como runtime principal, pero
+incluye un `package.json` mínimo con Wrangler 4.80.0 como devDependency
+exclusivamente para GitHub Actions CI/CD. Tailwind y otras herramientas se
+instalan vía Deno.
+
 ## Convenciones de Código
 
 ### Componentes Fresh
@@ -60,14 +65,78 @@ interface SectionWrapperContentProps {
 ## Comandos Importantes
 
 ```bash
-deno task start    # Desarrollo con hot-reload
-deno task check    # Fmt + Lint + Type check (verificación completa)
-deno task build    # Build de producción
-deno task deploy   # Desplegar a Cloudflare Workers
-deno fmt          # Formatear código
-deno lint         # Verificar lint
-deno check **/*.ts # Verificar tipos
+deno task start      # Desarrollo con hot-reload
+deno task check      # Fmt + Lint + Type check (verificación completa)
+deno task fmt        # Formatear código
+deno task precommit  # Formatear + validar (usado en pre-commit hook)
+deno task build      # Build de producción
+deno task deploy     # Desplegar a Cloudflare Workers
+deno lint            # Verificar lint
+deno check **/*.ts   # Verificar tipos
 ```
+
+## Git Hooks (Husky)
+
+El proyecto usa Husky para garantizar calidad de código antes de cada commit.
+
+### Pre-commit Hook
+
+Ejecuta automáticamente `deno task precommit`:
+
+1. **`deno fmt`** - Formatea código automáticamente
+2. **`deno lint`** - Valida reglas de linting (bloquea si falla)
+3. **`deno check **/*.ts **/*.tsx`** - Valida tipos TypeScript (bloquea si
+   falla)
+
+### Setup
+
+Después de clonar el repositorio:
+
+```bash
+deno install         # Instala dependencias npm (Tailwind, Wrangler, etc.)
+deno task prepare    # Configura git hooks de Husky
+```
+
+### Diferencia: `check` vs `precommit`
+
+- **`deno task check`**: Usado en CI - valida sin modificar (`fmt --check`)
+- **`deno task precommit`**: Usado en hook - formatea automáticamente (`fmt`)
+
+### Bypass (solo emergencias)
+
+```bash
+git commit --no-verify -m "mensaje"
+```
+
+**Nota:** El CI de GitHub Actions ejecuta `deno task check` y validará de todas
+formas.
+
+### Troubleshooting
+
+**Hook no se ejecuta:**
+
+```bash
+# Re-instalar hooks
+deno task prepare
+```
+
+**Deno no encontrado en hook:**
+
+El hook `.husky/pre-commit` ya incluye `export PATH="$HOME/.deno/bin:$PATH"`
+para garantizar que Deno esté disponible. Si aún falla, verificar:
+
+```bash
+# Verificar que Deno está instalado
+which deno
+
+# Si no está, instalarlo:
+curl -fsSL https://deno.land/install.sh | sh
+```
+
+**Hook muy lento:**
+
+- Considerar usar `lint-staged` para verificar solo archivos modificados
+- Por ahora, `deno check` verifica todos los archivos .ts/.tsx
 
 ## Patrones Comunes
 
@@ -126,5 +195,34 @@ export default function Component() {
 ## Notas de Deployment
 
 - El proyecto está configurado para Cloudflare Workers
-- Secrets necesarios para Wrangler si se agregan
+- Secrets necesarios: `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` en GitHub
+  Actions
 - El archivo `static/styles.css` es generado por Tailwind durante el build
+
+## Cloudflare Workers - Diferencias vs Deno Deploy
+
+### Runtime Edge
+
+- **V8 Isolates**: Sin filesystem, solo APIs Web Standards
+- **Cold start**: ~5ms (súper rápido)
+- **300+ edge locations**: Latencia ultra baja global
+
+### Limitaciones
+
+- ❌ NO `Deno.readTextFile()` / `Deno.writeFile()` - sin filesystem
+- ❌ NO `Deno.env.get()` - usar env bindings de Cloudflare
+- ✅ Usar imports estáticos para assets (JSON, archivos)
+- ⚠️ Límite CPU: 50ms por request (plan gratuito)
+- ⚠️ Bundle size: 1MB compressed
+
+### Assets Estáticos
+
+- Servidos desde Cloudflare CDN (configurado en `wrangler.jsonc`)
+- Directorio `./static` sube automáticamente
+- Accesibles vía rutas absolutas (ej: `/styles.css`)
+
+### Traducciones (i18n)
+
+- Importadas estáticamente en `utils/i18n.ts`
+- Bundleadas en build time (no filesystem en runtime)
+- Agregar nuevo idioma requiere rebuild + deploy

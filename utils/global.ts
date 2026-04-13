@@ -1,11 +1,5 @@
-export const getLanguages = async () => {
-  const locales = [];
-  const files = Deno.readDir("./locales");
-  for await (const file of files) {
-    if (file.isFile && file.name.endsWith(".json")) {
-      const lang = file.name.split(".")[0];
-      locales.push(lang);
-    }
-  }
-  return locales;
+// Compatible con Cloudflare Workers - sin filesystem
+// Los idiomas disponibles están hardcodeados basados en los archivos en /locales
+export const getLanguages = (): string[] => {
+  return ["es", "en"];
 };
