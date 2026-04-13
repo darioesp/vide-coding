@@ -7,4 +7,11 @@ export default defineConfig({
     fresh(),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true,
+      },
+    },
+  },
 });

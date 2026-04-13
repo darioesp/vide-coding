@@ -30,6 +30,7 @@
     "jsr:@std/uuid@^1.0.9": "1.1.0",
     "npm:@babel/core@^7.28.0": "7.29.0",
     "npm:@babel/preset-react@^7.27.1": "7.28.5_@babel+core@7.29.0",
+    "npm:@cloudflare/vite-plugin@^1.31.2": "1.31.2_vite@7.3.2__picomatch@4.0.4_wrangler@4.81.1__unenv@2.0.0-rc.24__workerd@1.20260409.1_unenv@2.0.0-rc.24",
     "npm:@mjackson/node-fetch-server@0.7": "0.7.0",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
     "npm:@preact/signals@^2.5.1": "2.9.0_preact@10.29.1",
@@ -47,7 +48,7 @@
     "npm:rollup@^4.50.0": "4.60.1",
     "npm:vite@7.3.2": "7.3.2_picomatch@4.0.4",
     "npm:vite@^7.1.4": "7.3.2_picomatch@4.0.4",
-    "npm:wrangler@4.81.1": "4.81.1_unenv@2.0.0-rc.24_workerd@1.20260409.1"
+    "npm:wrangler@^4.81.1": "4.81.1_unenv@2.0.0-rc.24_workerd@1.20260409.1"
   },
   "jsr": {
     "@deno/esbuild-plugin@1.2.1": {
@@ -370,6 +371,17 @@
       ],
       "optionalPeers": [
         "workerd"
+      ]
+    },
+    "@cloudflare/vite-plugin@1.31.2_vite@7.3.2__picomatch@4.0.4_wrangler@4.81.1__unenv@2.0.0-rc.24__workerd@1.20260409.1_unenv@2.0.0-rc.24": {
+      "integrity": "sha512-6RyoPhqmpuHPB+Zudt7mOUdGzB1+DQtJtPdAxUajhlS2ZUU0+bCn9Cj4g6Z2EvajBrkBTw1yVLqtt4bsUnp1Ng==",
+      "dependencies": [
+        "@cloudflare/unenv-preset",
+        "miniflare",
+        "unenv",
+        "vite",
+        "wrangler",
+        "ws"
       ]
     },
     "@cloudflare/workerd-darwin-64@1.20260409.1": {
@@ -1830,8 +1842,9 @@
     ],
     "packageJson": {
       "dependencies": [
+        "npm:@cloudflare/vite-plugin@^1.31.2",
         "npm:@tailwindcss/vite@^4.2.2",
-        "npm:wrangler@4.81.1"
+        "npm:wrangler@^4.81.1"
       ]
     }
   }
