@@ -5,7 +5,7 @@
   "main": "./main.ts",
   "assets": {
     "binding": "ASSETS",
-    "directory": "./static"
+    "directory": "./assets"
   },
   "routes": [
     {

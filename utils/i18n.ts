@@ -1,5 +1,5 @@
-import translationsEs from "../locales/es.json" with { type: "json" };
-import translationsEn from "../locales/en.json" with { type: "json" };
+import translationsEn from "@/locales/en.json" with { type: "json" };
+import translationsEs from "@/locales/es.json" with { type: "json" };
 
 type Translations = typeof translationsEs;
 

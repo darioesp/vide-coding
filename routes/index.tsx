@@ -1,33 +1,14 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import Footer from "../components/Footer.tsx";
-import Header from "../components/Header.tsx";
-import SectionWrapperContent from "../components/SectionWrapperContent.tsx";
-import WrapperPage from "../components/WrapperPage.tsx";
-import AnchorLang from "../islands/AnchorLang.tsx";
-import translations from "../locales/es.json" with { type: "json" };
-import { getLanguages } from "../utils/global.ts";
+import Footer from "@/components/Footer.tsx";
+import Header from "@/components/Header.tsx";
+import SectionWrapperContent from "@/components/SectionWrapperContent.tsx";
+import WrapperPage from "@/components/WrapperPage.tsx";
+import AnchorLang from "@/islands/AnchorLang.tsx";
+import { define } from "@/utils.ts";
 
-interface MiddlewareState {
-  lang: string;
-  translations: typeof translations;
-}
-
-interface Data {
-  languages: string[];
-}
-
-export const handler: Handlers<Data, MiddlewareState> = {
-  async GET(_, ctx) {
-    const languages = await getLanguages(); // Obtén los lenguajes en el servidor
-    return ctx.render({ languages });
-  },
-};
-
-export default function Home(
-  { state, data }: PageProps<Data, MiddlewareState>,
-) {
+export default define.page(function Home({ state }) {
   const { lang, translations } = state;
-  const { languages } = data;
+  const { languages } = state.data;
+
   return (
     <>
       <Header />
@@ -38,7 +19,7 @@ export default function Home(
               {translations.index.header}
             </strong>
           </div>
-          <SectionWrapperContent title="La Guía Definitiva del Vibe Coding">
+          <SectionWrapperContent title={translations.index.title}>
             <section class="w-full gap-4 text-sm leading-sm">
               {translations.index.sections.map((section) => (
                 <>
@@ -68,4 +49,4 @@ export default function Home(
       <AnchorLang lang={lang} languages={languages} />
     </>
   );
-}
+});

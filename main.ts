@@ -1,13 +1,31 @@
-/// <reference no-default-lib="true" />
-/// <reference lib="dom" />
-/// <reference lib="dom.iterable" />
-/// <reference lib="dom.asynciterable" />
-/// <reference lib="deno.ns" />
+import { App, staticFiles, trailingSlashes } from "fresh";
+import { getLanguages } from "@/utils/global.ts";
+import { t } from "@/utils/i18n.ts";
+import type { FreshContext } from "fresh";
+import type { State } from "@/utils.ts";
 
-import "$std/dotenv/load.ts";
+// Middleware para inyectar lang, translations y languages en ctx.state
+function i18nMiddleware(ctx: FreshContext<State>) {
+  const url = new URL(ctx.url);
+  const lang = url.pathname.split("/")[1] || "es";
+  const translations = t(lang);
+  const languages = getLanguages();
 
-import { start } from "$fresh/server.ts";
-import manifest from "./fresh.gen.ts";
-import config from "./fresh.config.ts";
+  // Mutar el state directamente (ctx.state es un objeto mutable)
+  Object.assign(ctx.state, {
+    data: { languages },
+    lang,
+    translations,
+  });
 
-await start(manifest, config);
+  return ctx.next();
+}
+
+export const app = new App<State>()
+  // i18n middleware DEBE ir primero
+  .use(i18nMiddleware)
+  // Add static file serving middleware
+  .use(staticFiles())
+  .use(trailingSlashes("never"))
+  // Enable file-system based routing
+  .fsRoutes();
