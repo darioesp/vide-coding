@@ -12,3 +12,6 @@ node_modules/
 
 # Husky (archivos internos - no trackear)
 .husky/_
+
+# Wrangler (archivos internos - no trackear)
+.wrangler/
